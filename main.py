@@ -58,13 +58,16 @@ def backward(X, y, z1, a1, z2, a2, learning_rate=0.1):
     b2 -= learning_rate * db2
 
 # Training loop
-def train(epochs=10000, learning_rate=0.1):
+# Modify the number of epochs for training
+def train(epochs=15000, learning_rate=0.1):
     for epoch in range(epochs):
         z1, a1, z2, a2 = forward(X)
         loss = compute_loss(y, a2)
         backward(X, y, z1, a1, z2, a2, learning_rate)
         if epoch % 1000 == 0:
             print(f"Epoch {epoch}, Loss: {loss:.4f}")
+
+
 
 # Run training and show predictions
 if __name__ == "__main__":
